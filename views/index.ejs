@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      color: #666;
+      margin-top: 10px;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    input {
+      padding: 10px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #3498db;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Login to Discord Bot</h1>
+    <form id="loginForm">
+      <input type="text" name="TOKEN" placeholder="Enter Token">
+      <input type="text" name="PREFIX" placeholder="Enter Prefix">
+      <button type="button" onclick="submitForm()">Login</button>
+    </form>
+  </div>
+
+  <script>
+    function submitForm() {
+      const form = document.getElementById('loginForm');
+      const formData = new FormData(form);
+
+      fetch('/api/login', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log(data); // Handle response data
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+    }
+  </script>
+</body>
+</html>

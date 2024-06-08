@@ -1,0 +1,25 @@
+{
+  "name": "DiscordAutoBot",
+  "version": "1.0.0",
+  "description": "Run a DiscordBot on a browser!",
+  "main": "index.js",
+  "scripts": {
+    "start": "bun index.js",
+    "devStart": "bun --watch index.js",
+    "format": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "Rui Reogo",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.15.3",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "figlet": "^1.7.0",
+    "fs-extra": "^11.2.0"
+  },
+  "devDependencies": {
+    "bun": "^1.1.12",
+    "prettier": "^3.3.1"
+  }
+}
